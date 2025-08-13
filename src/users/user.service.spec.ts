@@ -54,7 +54,7 @@ describe("UsersService", () => {
     ];
     mockPrisma.user.findMany.mockResolvedValue(dto);
 
-    const result = await service.findall();
+    const result = await service.findAll();
     expect(result).toEqual(dto);
   });
 
