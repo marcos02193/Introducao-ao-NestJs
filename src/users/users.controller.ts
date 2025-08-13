@@ -3,7 +3,7 @@ import { UserService } from "./users.service";
 import { createUserDto } from "./DTO/create-user.dto";
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse } from "@nestjs/swagger";
 import { UpdateUserDto } from "./DTO/update-user.dto";
-import { JwtAuthGuard } from "src/auth/jwt.guard";
+import { JwtAuthGuard } from "../auth/jwt.guard";
 
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
@@ -30,7 +30,7 @@ export class UsersController {
     @ApiBody({type: createUserDto})
     @ApiResponse({status:201, description: `usuarios encotrados com sucesso!`})
     findAll(){
-        return this.UserService.findall()
+        return this.UserService.findAll()
     }
 
     @Get(':id')

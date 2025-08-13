@@ -9,7 +9,7 @@ export class UserService {
 
     constructor(private prisma: PrismaService){}
 
-    async findall(): Promise<User[]>{
+    async findAll(): Promise<User[]>{
         return this.prisma.user.findMany()
     }
 
