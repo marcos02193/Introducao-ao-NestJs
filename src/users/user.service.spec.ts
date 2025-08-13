@@ -54,7 +54,7 @@ describe("UsersService", () => {
     ];
     mockPrisma.user.findMany.mockResolvedValue(dto);
 
-    const result = await service.findall();
+    const result = await service.findAll();
     expect(result).toEqual(dto);
   });
 
@@ -116,12 +116,8 @@ it("Mostrar usuario por ID", async () =>{
 
       const result = await service.remove(dto.id)
       expect(result).toEqual(dto)
-      expect(mockPrisma.user.update).toHaveBeenCalledWith({
-      where: {id: "2"},
-      data: {
-        name: "Maria",
-        email: "maria@example.com",
-        password: "456" }
+      expect(mockPrisma.user.delete).toHaveBeenCalledWith({
+      where: {id: "2"}
     });
     })
 
